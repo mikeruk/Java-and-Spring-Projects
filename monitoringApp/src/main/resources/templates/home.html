@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script defer type="text/javascript"  th:src="@{js/loadData.js}"></script>
+
+  <script defer type="text/javascript"  th:src="@{js/triggerAlarm.js}"></script>
+  <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
+
+  <title>Server Monitoring</title>
+</head>
+
+<body th:onload="loadData">
+<h2>Servers Health Check:</h2>
+<!--<div id="buttonContainer">-->
+<!--  <button type="submit">Submit</button>-->
+<!--  <button type="submit">Submit</button>-->
+<!--  <button type="submit">Submit</button>-->
+<!--</div>-->
+
+<div id="infoContainer">
+  <p>REST API Endpoint: <span style="color: #007bff;">http://localhost/monitoring-rest-api</span></p>
+</div>
+
+<div id="container">
+  <table>
+
+    <thead>
+    <tr>
+      <th>Server:</th>
+      <th>Status:</th>
+    </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
+
