@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Snippet - BBBootstrap</title>
+    <link href='#' rel='stylesheet'>
+    <link href='#' rel='stylesheet'>
+    <script type='text/javascript' src='#'></script>
+    <style>
+
+        .card-tamp {
+
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            justify-items: center;
+            border-radius: 35px;
+            padding: 12%;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+
+        .card-outline {
+
+            border-radius: 35px;
+            width: 100%;
+
+            box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+        }
+
+        .text {
+            align-items: center;
+            justify-content: center;
+            padding-left: 50px;
+            border: 2px solid rgba(28, 223, 141, 0.726);
+            width: 380px;
+            border-radius: 35px;
+            border-top-left-radius: 0;
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+            color: rgba(28, 223, 141, 0.726);
+            text-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+            box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+            transition-property: width, color;
+            transition-duration: 2s;
+        }
+
+        .text2 {
+            align-items: center;
+            justify-content: center;
+            text-align: right;
+            padding-right: 50px;
+            border: 2px solid rgba(28, 223, 141, 0.726);
+            width: 380px;
+            border-radius: 35px;
+            border-top-right-radius: 0;
+            right: -50px;
+            color: rgba(28, 223, 141, 0.726);
+
+            text-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+
+            box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+            transition-property: width, color;
+            transition-duration: 1s;
+
+        }
+
+        .text2:hover {
+            width: 60%;
+            box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+
+            text-shadow: 0px 0px 10px rgb(0, 252, 147);
+            color: rgb(0, 0, 0);
+        }
+
+        .text:hover {
+            width: 100%;
+            box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+
+            text-shadow: 0px 0px 10px rgb(0, 252, 147);
+            color: rgb(0, 0, 0);
+
+        }
+
+        .input-data {
+
+            border: 2px solid rgba(28, 223, 141, 0.726);
+            width: 320px;
+            border-radius: 35px;
+            border-top-left-radius: 0;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-right: 20px;
+
+            color: rgba(28, 223, 141, 0.726);
+            text-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+            box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+            transition-property: width, color;
+            transition-duration: 2s;
+        }
+
+        .card-outline:hover {
+            box-shadow: rgba(4, 124, 74, 0.267) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+
+    </style>
+</head>
+
+
+<body className='snippet-body'>
+
+
+<th:block th:include="~{fragments/navigation1}"/>
+
+
+<div class="card-outline">
+
+    <form>
+
+        <div class="card-tamp" style="margin-top: 60px">
+            <p>Enter your data:</p>
+            <div class="text">
+                <input type="text" class="input-data">
+            </div>
+            <div class="text">
+                <input type="text" class="input-data">
+            </div>
+            <div class="text">
+                <input type="text" class="input-data">
+            </div>
+            <button type="submit">Save in Database</button>
+        </div>
+
+    </form>
+</div>
+
+
+</body>
+</html>

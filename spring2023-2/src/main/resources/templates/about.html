@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+
+        /*CSS only for the Employers list section*/
+        .gray-bg {
+            background-color: #f5f5f5;
+        }
+
+        .section-title h2 {
+            font-weight: 700;
+            color: #20247b;
+            font-size: 45px;
+            margin: 0 0 15px;
+            border-left: 5px solid #fc5356;
+            padding-left: 15px;
+        }
+
+        .section-title {
+            padding-bottom: 45px;
+        }
+
+        .section-title p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+
+        /* Resume Box
+        ---------------------*/
+        .resume-box {
+            background: #ffffff;
+            box-shadow: 0 0 1.25rem rgba(31, 45, 61, 0.08);
+            border-radius: 10px;
+        }
+
+        .resume-box ul {
+            margin: 0;
+            padding: 30px 20px;
+            list-style: none;
+        }
+
+        .resume-box li {
+            position: relative;
+            padding: 0 20px 0 60px;
+            margin: 0 0 30px;
+        }
+
+        .resume-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        .resume-box li:after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 20px;
+            border-left: 1px dashed #fc5356;
+            bottom: 0;
+        }
+
+        .resume-box .icon {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            color: #fc5356;
+            line-height: 40px;
+            background: #ffffff;
+            text-align: center;
+            z-index: 1;
+            border: 1px dashed;
+            border-radius: 50%;
+        }
+
+        .resume-box .time {
+            background: #fc5356;
+            color: #ffffff;
+            font-size: 10px;
+            padding: 2px 10px;
+            display: inline-block;
+            margin-bottom: 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .resume-box h5 {
+            font-weight: 700;
+            color: #20247b;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .resume-box p {
+            margin: 0;
+        }
+
+        .resume-box li:after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 20px;
+            border-left: 1px dashed #fc5356;
+            bottom: 0;
+        }
+
+
+        table button {
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            margin-left: 8%;
+        }
+
+        table button:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+        .button {
+            background-color: #fc5356;
+            border-radius: 5px;
+            color: white;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+        .button:focus,
+        .button:hover {
+            background-color: FireBrick;
+            color: White;
+        }
+
+        .content {
+            display: none;
+            margin: 1em 0;
+        }
+
+        .content.active,
+        .no-js .content {
+            display: block;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+<th:block th:include="~{fragments/navigation1}"/>
+
+
+
+<div class="container emp-profile">
+    <form method="post" class="card-outline card-tamp text">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img style="height: 250px; width: 250px"
+                         src="https://img.freepik.com/free-vector/male-female-silhouette-set-human-profile-icon-set-illustration_1284-52965.jpg"
+                         alt=""/>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h3>
+                        Kostadin Yanchev
+                    </h3>
+                    <p>
+                        ABOUT ME:
+                    </p>
+                    <p>
+                        As an experienced Technical Support Agent I am currently providing technical support for users in companies.
+                        My Technical Service Engineer skills regarding the administration include configuration and troubleshooting
+                        Microsoft technologies Office 365, Exchange Online, Intune, Windows 10, SCCM, Hyper-V, Active Directory, DHCP,
+                        DNS records along with switching, routing, firewall and other technologies in the OSI Model. As well as None-Microsoft
+                        technologies like Oracle VM VirtualBox and Linux OS like Fedora.
+                    </p>
+
+
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+
+
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+<section class="section gray-bg" id="resume">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title">
+                    <h2>Recommendations and Endorsements</h2>
+                    <p>I design and develop services for customers of all sizes, specializing in creating stylish,
+                        modern websites</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-6 m-15px-tb">
+                <div class="resume-box">
+                    <section  th:each="user : ${userEntityViewDtoList}" th:object="${user}">
+                        <div sec:authorize="hasRole('MODERATOR')">
+                            <h5 th:text="*{firstName + ' ' + lastName + ' recommended to Kostadin: ' }">hereRecommended</h5>
+                            <p th:each="recommendation : ${user.getRecommendationsView()}" th:object="${recommendation}" th:text="*{name}"></p>
+                        </div>
+                        <div  sec:authorize="hasRole('ADMIN')">
+                            <h5 th:text="*{firstName + ' ' + lastName + ' recommended to Kostadin: ' }">hereRecommended</h5>
+<!--                            <p th:each="recommendation : ${user.getRecommendationsView()}" th:object="${recommendation}" th:text="*{name}"></p>-->
+                            <p th:each="recommendation : ${user.getRecommendationsView()}" th:object="${recommendation}"
+                               th:text="*{name} + ', position: '+ *{position} + ', Email: '+ *{email} + ', Tel: ' + *{telephoneNumber}"></p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="col-lg-6 m-15px-tb">
+                <div class="resume-box">
+                    <section  th:object="${allEndorsementViewDtoList}">
+                        <div sec:authorize="hasRole('MODERATOR')">
+                            <h5 >Endorsed by:</h5>
+                            <p th:each="endorsement : ${allEndorsementViewDtoList}" th:object="${endorsement}" th:text="*{name} + ' at ' + *{companyName}"></p>
+                        </div>
+                        <div  sec:authorize="hasRole('ADMIN')">
+                            <h5>Endorsed by:</h5>
+                            <p th:each="endorsement : ${allEndorsementViewDtoList}" th:object="${endorsement}"
+                               th:text="*{name} + ' at ' + *{companyName} + ', position: '+ *{position} + ', Email: '+ *{email}"></p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

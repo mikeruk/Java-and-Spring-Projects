@@ -1,0 +1,39 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+    # Choose either MySQL 8 or MySQL 5 below
+    # For MySQL 8
+    #database-platform: org.hibernate.dialect.MySQL8Dialect
+    #For MySQL 5
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update #create-drop
+    open-in-view: false
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/open_cv5?useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
+    username: "****"
+    password: "****"
+  sql:
+    init:
+      mode: always
+logging:
+  level:
+    org.springframework.security: TRACE
+app:
+  default:
+    password: ****
+
+#server:
+#  error:
+#    include-exception: true
+#    include-stacktrace: always
+#    whitelabel:
+#      enabled: on

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+
+
+  <style>
+
+    .card-tamp {
+      background-color: #6c757d;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      justify-items: center;
+      border-radius: 35px;
+      padding-left: 12%;
+      padding-right: 12%;
+      padding-bottom: 2%;
+      padding-top: 2%;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+    .card-outline {
+      border-radius: 35px;
+      width: 100%;
+      box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+    }
+
+    .card-outline:hover {
+      box-shadow: rgba(4, 124, 74, 0.267) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+    .text {
+      border: 2px solid rgba(28, 223, 141, 0.726);
+      color: rgba(28, 223, 141, 0.726);
+      text-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+      box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+    }
+
+    .text:hover {
+      width: 100%;
+      box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+      text-shadow: 0px 0px 10px rgb(0, 252, 147);
+      color: rgb(0, 0, 0);
+    }
+
+
+
+
+
+    /*CSS only for the Employers list section*/
+    .gray-bg {
+      background-color: #f5f5f5;
+    }
+
+    .section-title h2 {
+      font-weight: 700;
+      color: #20247b;
+      font-size: 45px;
+      margin: 0 0 15px;
+      border-left: 5px solid #fc5356;
+      padding-left: 15px;
+    }
+
+    .section-title {
+      padding-bottom: 45px;
+    }
+
+    .section-title p {
+      margin: 0;
+      font-size: 18px;
+    }
+
+
+    /* Resume Box
+    ---------------------*/
+    .resume-box {
+      background: #ffffff;
+      box-shadow: 0 0 1.25rem rgba(31, 45, 61, 0.08);
+      border-radius: 10px;
+    }
+
+    .resume-box ul {
+      margin: 0;
+      padding: 30px 20px;
+      list-style: none;
+    }
+
+    .resume-box li {
+      position: relative;
+      padding: 0 20px 0 60px;
+      margin: 0 0 30px;
+    }
+
+    .resume-box li:last-child {
+      margin-bottom: 0;
+    }
+
+    .resume-box li:after {
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      border-left: 1px dashed #fc5356;
+      bottom: 0;
+    }
+
+    .resume-box .icon {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      color: #fc5356;
+      line-height: 40px;
+      background: #ffffff;
+      text-align: center;
+      z-index: 1;
+      border: 1px dashed;
+      border-radius: 50%;
+    }
+
+    .resume-box .time {
+      background: #fc5356;
+      color: #ffffff;
+      font-size: 10px;
+      padding: 2px 10px;
+      display: inline-block;
+      margin-bottom: 12px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .resume-box h5 {
+      font-weight: 700;
+      color: #20247b;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .resume-box p {
+      margin: 0;
+    }
+
+    .resume-box li:after {
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      border-left: 1px dashed #fc5356;
+      bottom: 0;
+    }
+
+
+
+    /*BUTTON API CSS*/
+
+
+    .button {
+      background-color: #fc5356;
+      border-radius: 5px;
+      color: white;
+      padding: .5em;
+      text-decoration: none;
+    }
+
+    .button:focus,
+    .button:hover {
+      background-color: FireBrick;
+      color: White;
+    }
+
+    .content {
+      display: none;
+      margin: 1em 0;
+    }
+
+    .content.active,
+    .no-js .content {
+      display: block;
+    }
+
+
+
+  </style>
+
+</head>
+<body style="background-color: #888888">
+
+
+<th:block th:include="~{fragments/navigation1}"/>
+
+<div class="container emp-profile">
+  <form method="post" class="card-outline card-tamp text">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-img">
+          <!--          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>-->
+          <img style="height: 250px; width: 250px"
+               src="https://img.freepik.com/free-vector/male-female-silhouette-set-human-profile-icon-set-illustration_1284-52965.jpg"
+               alt=""/>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="profile-head">
+          <h3>
+            Kostadin Yanchev
+          </h3>
+          <p>
+            Web Developer
+          </p>
+
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Email: </h4>
+              <p>MYEMAIL@gmail.com</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Phone: </h4>
+              <p>123 456 7890</p>
+            </div>
+          </div>
+          <a class="nav-link" sec:authorize="hasRole('ADMIN')" th:href="@{/certificates/add}">Add New Certificate</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="tab-content profile-tab" id="myTabContent">
+
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              My certificates:
+            </li>
+          </ul>
+
+
+          <nav class="navbar-expand-sm">
+            <ul class="navbar-nav mr-auto col-12 justify-content-lg-center">
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<section class="section gray-bg" id="resume">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="section-title">
+          <h2>Certificates</h2>
+          <p>I design and develop services for customers of all sizes, specializing in creating stylish,
+            modern websites</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 35px">
+      <a th:href="@{/certificates-api}" class="button js-button" role="button">Use API</a>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-6 m-15px-tb">
+        <div class="resume-box">
+          <ul>
+            <li th:each="certificate : ${allCertificationViewList}" th:object="${certificate}">
+              <div class="icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+
+              <span class="time"
+                    th:text="*{issueDate}">issueDate</span>
+              <h5 th:text="*{name}">name</h5>
+              <h5 th:text="*{professionalField}">professionalField</h5>
+              <p th:text="*{organisation}">Organisation</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>

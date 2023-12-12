@@ -1,0 +1,337 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Snippet - BBBootstrap</title>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <style>::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    .container {
+        margin-top: 100px
+    }
+
+    .box1 img, .box1:after, .box1:before {
+        width: 100%;
+        transition: all .3s ease 0s
+    }
+
+    .box1 .icon, .box2, .box3, .box4, .box5 .icon li a {
+        text-align: center
+    }
+
+    .box10:after, .box10:before, .box1:after, .box1:before, .box2 .inner-content:after, .box3:after, .box3:before, .box4:before, .box5:after, .box5:before, .box6:after, .box7:after, .box7:before {
+        content: ""
+    }
+
+    .box1, .box11, .box12, .box13, .box14, .box16, .box17, .box18, .box2, .box20, .box21, .box3, .box4, .box5, .box5 .icon li a, .box6, .box7, .box8 {
+        overflow: hidden
+    }
+
+    .box1 .title, .box10 .title, .box4 .title, .box7 .title {
+        letter-spacing: 1px
+    }
+
+    .box3 .post, .box4 .post, .box5 .post, .box7 .post {
+        font-style: italic
+    }
+
+    body {
+        background-color: #606060
+    }
+
+    .mt-30 {
+        margin-top: 30px
+    }
+
+    .mt-40 {
+        margin-top: 40px
+    }
+
+    .mb-30 {
+        margin-bottom: 30px
+    }
+
+    .box1 .icon, .box1 .title {
+        margin: 0;
+        position: absolute
+    }
+
+    .box1 {
+        box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+        position: relative
+    }
+
+    .box1:after, .box1:before {
+        height: 50%;
+        background: rgba(0, 0, 0, .5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transform-origin: 100% 0;
+        transform: rotateZ(90deg)
+    }
+
+    .box1:after {
+        top: auto;
+        bottom: 0;
+        transform-origin: 0 100%
+    }
+
+    .box1:hover:after, .box1:hover:before {
+        transform: rotateZ(0)
+    }
+
+    .box1 img {
+        height: auto;
+        transform: scale(1) rotate(0)
+    }
+
+    .box1:hover img {
+        filter: sepia(80%);
+        transform: scale(1.3) rotate(10deg)
+    }
+
+    .box1 .title {
+        font-size: 19px;
+        font-weight: 600;
+        color: #fff;
+        text-transform: uppercase;
+        text-shadow: 0 0 1px #004cbf;
+        bottom: 10px;
+        left: 10px;
+        opacity: 0;
+        z-index: 2;
+        transform: scale(0);
+        transition: all .5s ease .2s
+    }
+
+    .box1:hover .title {
+        opacity: 1;
+        transform: scale(1)
+    }
+
+    .box1 .icon {
+        padding: 7px 5px;
+        list-style: none;
+        background: #004cbf;
+        border-radius: 0 0 0 10px;
+        top: -100%;
+        right: 0;
+        z-index: 2;
+        transition: all .3s ease .2s
+    }
+
+    .box1:hover .icon {
+        top: 0
+    }
+
+    .box1 .icon li {
+        display: block;
+        margin: 10px 0
+    }
+
+    .box1 .icon li a {
+        display: block;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 10px;
+        font-size: 18px;
+        color: #fff;
+        transition: all .3s ease 0s
+    }
+
+    .box2 .icon li a, .box3 .icon a:hover, .box4 .icon li a:hover, .box5 .icon li a, .box6 .icon li a {
+        border-radius: 50%
+    }
+
+    .box1 .icon li a:hover {
+        color: #fff;
+        box-shadow: 0 0 10px #000 inset, 0 0 0 3px #fff
+    }
+
+    @media only screen and (max-width: 990px) {
+        .box1 {
+            margin-bottom: 30px
+        }
+    }
+
+    #navcol-1 {
+        font-size: 18px;
+    }
+
+    @media (max-width: 576px) {
+        .navbar-dark .navbar-nav .nav-link {
+            float: right;
+        }
+    }
+
+
+    .card-tamp {
+        background-color: #6c757d;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        border-radius: 35px;
+        padding-left: 12%;
+        padding-right: 12%;
+        padding-bottom: 2%;
+        padding-top: 2%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+    .card-outline {
+        border-radius: 35px;
+        width: 100%;
+        box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+    }
+
+    .card-outline:hover {
+        box-shadow: rgba(4, 124, 74, 0.267) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+    .text {
+        border: 2px solid rgba(28, 223, 141, 0.726);
+        color: rgba(28, 223, 141, 0.726);
+        text-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+        box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+    }
+
+    .text:hover {
+        width: 100%;
+        box-shadow: 0px 0px 10px rgba(28, 223, 141, 0.726);
+        text-shadow: 0px 0px 10px rgb(0, 252, 147);
+        color: rgb(0, 0, 0);
+    }
+
+
+    </style>
+</head>
+<body className='snippet-body'>
+
+
+<th:block th:include="~{fragments/navigation1}"/>
+
+<div class="container emp-profile">
+    <form method="post" class="card-outline card-tamp text">
+
+        <h3 STYLE="text-align: center">
+            WELCOME TO MY CV
+        </h3>
+
+    </form>
+
+</div>
+
+<div class="container">
+
+    <div ></div>
+
+
+
+
+</div>
+
+
+
+<div class="container">
+    <div class="row mt-40 justify-content-lg-center">
+        <div class="col-md-4 col-sm-6" height="35px" width="35px">
+            <div class="box1">
+                <img
+                        src="https://img.freepik.com/free-photo/close-up-hand-pointing-monitor_23-2149101151.jpg"
+                        alt="">
+                <a th:href="@{/skills}">
+                    <h3 class="title">My Skills ...</h3>
+                </a>
+                <ul class="icon">
+                    <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://instagram.com"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://google.com"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--        <img src="https://img.freepik.com/free-photo/hand-using-laptop-computer-with-virtual-screen-document-online-approve-paperless-quality-assurance-erp-management-concept_616485-61.jpg" alt="" class="img-thumbn">-->
+        <div class="col-md-4 col-sm-6">
+            <div class="box1"><img
+                    src="https://img.freepik.com/premium-photo/award-certificate-prize-document-success-concept_53876-51293.jpg"
+                    alt="" class="img-thumbn">
+                <a th:href="@{/certificates}">
+                    <h3 class="title">My Certifications ...</h3>
+                </a>
+                <ul class="icon">
+                    <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://instagram.com"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://google.com"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mt-40 justify-content-lg-center">
+        <div class="col-md-4 col-sm-6">
+            <div class="box1"><img
+                    src="https://img.freepik.com/free-photo/low-angle-shot-high-rise-buildings-clear-sky-frankfurt-germany_181624-30909.jpg"
+                    alt="">
+                <a th:href="@{/work-experience}">
+                    <h3 class="title">My Employers ...</h3>
+                </a>
+                <ul class="icon">
+                    <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://instagram.com"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://google.com"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="box1"><img
+                    src="https://img.freepik.com/free-photo/high-angle-books-graduation-cap-education-day_23-2149241020.jpg"
+                    alt="">
+                <a th:href="@{/education}">
+                    <h3 class="title">My Education ...</h3>
+                </a>
+                <ul class="icon">
+                    <li><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://instagram.com"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://google.com"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
